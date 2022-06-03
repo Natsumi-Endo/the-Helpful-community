@@ -16,8 +16,8 @@
 <nav class="navbar navbar-expand-lg index-nave">
     <div class="container-fluid">
         <a href="../views/dashboard.php" class="navbar-brand">
-        <i class="fa-solid fa-hands-holding-heart"></i>Logo
-        </a>
+                    <img src="..\assets\images\logo.jpg" alt="logo" class="header-logo">
+                    </a>
         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-icon">
             <span class="navbar-toggler-icon"></span>
         </button>

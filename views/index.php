@@ -14,52 +14,14 @@
     <title>Helpful Community</title>
 </head>
 <body>
-    <div class="container-fruid main">
-        <nav class="navbar navbar-expand-lg index-nave">
-                <div class="container-fluid">
-                    <a href="" class="navbar-brand">
-                    <i class="fa-solid fa-hands-holding-heart"></i>Logo
-                    </a>
-                    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-icon">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbar-icon">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link active">Home</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Feature</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Pricing</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link disabled">Disabled</a>
-                            </li>
-                        </ul>
-
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item mx-2">
-                                <a href="../views/login.php" class="nav-link login" id="login-show">Log in</a>
-                            </li>
-
-                            <li class="nav-item bg-primary">
-                                <a href="../views/register.php" class="nav-link text-white">Sign up</a>
-                            </li>
-                        </ul>
-
-                    </div>
-                </div>
-
-            </nav>
-
-            <div class="title-wrapper">
+<?php
+    include "index-menu.php";
+?>
+       <div class="title-wrapper">
                 <h2 class="title mx-auto">
                     <span>Please join us <br>if you feel lonely.</span>             
                 </h2>
-                <a href="../views/register.php" class="btn btn-start btn-lg btn btn-outline primary text-white">Get started</a>   
+                <a href="../views/register.php" class="btn btn-start btn-lg btnd text-white">Get started</a>   
                 
             </div>
         

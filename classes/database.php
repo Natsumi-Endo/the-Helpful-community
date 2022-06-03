@@ -3,7 +3,7 @@ class Database {
 
     private $server_name = "localhost";
     private $username = "root";
-    private $password = "";//you don't have pw
+    private $password = "";
     private $db_name = "helpful_community";
     protected $conn;
     

@@ -9,12 +9,12 @@
     <!--fontawsome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../assets/styles/style.css">
-    <title>Document</title>
+    <title>Footer</title>
 </head>
 <body>
     <footer>
         <div class="text-white p-2 text-center">Copyright&copy; Helpful Community</div> 
-        <p class="footer-contact-us text-white text-center"><a class="footer-contact-us"  href="register.php">Contact us!</a></p>
+        <p class="text-white text-center"><a class="footer-contact-us" href="register.php">Contact us!</a></p>
     </footer>
 
 </body>

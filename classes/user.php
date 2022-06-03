@@ -4,38 +4,40 @@ require "database.php";
 
 class User extends Database {
 
-    public function createUser($first_name, $last_name, $username, $password, $photo) {
+    //register
+    public function createUser($username, $email, $tel, $password, $photo) {
         $password = password_hash($password, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO `users`( `first_name`, `last_name`, `username`, `password`, `photo`) VALUES ('$first_name','$last_name','$username','$password','$photo')
+        $sql = "INSERT INTO `accounts`(`username`, `password`, `email`, `contact_number`, `photo`, `role`) VALUES ('$username','$password','$email','$tel','$photo','U')
         ";
 
-        if ($this->conn->query($sql)) {
-            header ("location: ../views");
+        if ($this->conn->query($sql)) {                                                     
+            header ("location: ../views/login.php");
             exit;
         } else {
             die("Error adding new user: " . $this->conn->error);
         }
-
-
     }
 
-    public function login($username, $password) {
-        $sql = "SELECT * FROM users WHERE username = '$username'";
+    public function login($email, $password) {
+        $sql = "SELECT * FROM accounts WHERE email = '$email'";
 
         if($result = $this->conn->query($sql)){ 
             if($result->num_rows == 1){                                     // Check if the username exists
                 $user_row = $result->fetch_assoc();
+
                 if(password_verify($password, $user_row['password'])){      // if the password is correct
                 /****** SESSION ******/
                 session_start();
 
-                $_SESSION['user_id'] = $user_row['id'];
+                $_SESSION['account_id'] = $user_row['id'];
                 $_SESSION['username'] = $user_row['username'];
                 $_SESSION['photo'] = $user_row['photo'];
+
                 header("location: ../views/dashboard.php");
                 exit;
                 } else {
+                    
                 echo "<p class='text-danger'>Incorrect password.</p>";
                 }
             } else {

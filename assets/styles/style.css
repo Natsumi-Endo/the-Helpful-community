@@ -13,8 +13,23 @@ footer {
     position: absolute;
     bottom: 0; 
 }
-.btn:hover {
-    opacity: 1;
+
+.header-logo {
+  width: 85px;
+}
+.navbar {
+  display: flex;
+}
+
+.nav-item .btn:hover {
+    opacity: 0.6;
+}
+.nav-item {
+  border-radius: 6px;
+}
+
+#submit-btn {
+  opacity: 0.6;
 }
 
 .index-nave {
@@ -42,7 +57,7 @@ footer {
     color: #0D6EFD;
   }
 
-.footer-contact-us {
+a .footer-contact-us {
   color: #ffffff;
 }
 

@@ -15,23 +15,23 @@
 <body>
 <nav class="navbar navbar-expand-lg index-nave">
     <div class="container-fluid">
-        <a href="" class="navbar-brand">
-        <i class="fa-solid fa-hands-holding-heart"></i>Logo
-        </a>
+    <a href="" class="navbar-brand">
+                    <img src="..\assets\images\logo.jpg" alt="logo" class="header-logo">
+                    </a>
         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-icon">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar-icon">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">Home</a>
+                    <a href="#" class="nav-link active">Tweets</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Feature</a>
+                    <a href="#" class="nav-link">Counceling</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Pricing</a>
+                    <a href="#" class="nav-link">Posts</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link disabled">Disabled</a>
@@ -39,6 +39,9 @@
             </ul>
 
             <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-2">
+                    <a href="#" class="nav-link" id="login-show">My Page</a>
+                </li>
                 <li class="nav-item mx-2">
                     <a href="#" class="nav-link login" id="login-show">Log in</a>
                 </li>
