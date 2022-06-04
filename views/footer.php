@@ -12,7 +12,7 @@
     <title>Footer</title>
 </head>
 <body>
-    <footer>
+    <footer class="class-footer">
         <div class="text-white p-2 text-center">Copyright&copy; Helpful Community</div> 
         <p class="text-center"><a class="text-white footer-contact-us" style="text-decoration:none" href="register.php">Contact us!</a></p>
     </footer>

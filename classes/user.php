@@ -6,7 +6,7 @@ class User extends Database {
 
     //register
     public function createUser($username, $email, $tel, $password, $photo) {
-        
+
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         $sql = "INSERT INTO `accounts`(`username`, `password`, `email`, `contact_number`, `photo`, `role`) VALUES ('$username','$password','$email','$tel','$photo','U')

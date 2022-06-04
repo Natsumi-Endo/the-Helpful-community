@@ -37,22 +37,6 @@
         </div>
     </div>
     </div>
-    
-    <!--modal-->
-    <!-- <div class="login-modal-wrapper login-modal" id="login-modal">
-    
-    <div class="modal">
-      <div id="login-form">
-        <h2>Log in with email</h2>
-        <form action="#">
-          <input class="form-control" type="text" placeholder="Email">
-          <input class="form-control" type="password" placeholder="password">
-          <div id="submit-btn">Log in</div>
-        </form>
-      </div>
-    </div>
-    
-  </div> -->
 
     </div>
     

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div style="height: 100vh">
+    <div style="height: 70vh">
         <div class="row h-100 m-0">
             <div class="card w-25 my-auto mx-auto">
                 <div class="card-header bg-transparent border-0">
