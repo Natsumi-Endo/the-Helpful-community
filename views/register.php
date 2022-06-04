@@ -9,9 +9,6 @@
 </head>
 
 <body>
-<?php
-    include "index-menu.php";
-?>
     <div style="height: 100vh">
         <div class="row h-100 m-0">
             <div class="card w-25 my-auto mx-auto">
@@ -41,10 +38,11 @@
                 </div>
             </div>
         </div>
-    </div>
-<?php
+        <?php
     include "../views/footer.php";
 ?>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

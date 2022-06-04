@@ -7,9 +7,7 @@
     <title>Login</title>
 </head>
 <body>
-<?php
-    include "index-menu.php";
-?>
+
     <div style="height: 100vh">
         <div class="row h-100 m-0">
             <div class="card w-25 my-auto mx-auto">
@@ -26,9 +24,10 @@
                 </div>
             </div>
         </div>
+        <?php
+            include "../views/footer.php";
+        ?>
     </div>
-<?php
-    include "../views/footer.php";
-?>
+
 </body>
 </html>

@@ -14,7 +14,7 @@
 <body>
     <footer>
         <div class="text-white p-2 text-center">Copyright&copy; Helpful Community</div> 
-        <p class="text-white text-center"><a class="footer-contact-us" href="register.php">Contact us!</a></p>
+        <p class="text-center"><a class="text-white footer-contact-us" style="text-decoration:none" href="register.php">Contact us!</a></p>
     </footer>
 
 </body>
