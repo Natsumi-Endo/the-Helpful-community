@@ -7,12 +7,12 @@ class User extends Database {
     //register
     public function createUser($username, $email, $tel, $password, $photo) {
 
-        $password = password_hash($password, PASSWORD_DEFAULT);
+        $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO `accounts`(`username`, `password`, `email`, `contact_number`, `photo`, `role`) VALUES ('$username','$password','$email','$tel','$photo','U')
+        $sql = "INSERT INTO `accounts`(`username`, `password`, `email`, `contact_number`, `photo`, `role`) VALUES ('$username','$password_hash','$email','$tel','$photo','U')
         ";
 
-        if ($this->conn->query($sql)) {                                                     
+        if ($this->conn->query($sql)) { 
             header ("location: ../views/login.php");
             exit;
         } else {
@@ -22,24 +22,27 @@ class User extends Database {
 
     public function login($email, $password) {
         $sql = "SELECT * FROM accounts WHERE email = '$email'";
+  
 
         if($result = $this->conn->query($sql)){ 
+
             if($result->num_rows == 1){                                     // Check if the username exists
                 $user_row = $result->fetch_assoc();
-
+                //print_r($user_row);
                 if(password_verify($password, $user_row['password'])){      // if the password is correct
-                /****** SESSION ******/
-                session_start();
+                    /****** SESSION ******/
+                    session_start();
 
-                $_SESSION['account_id'] = $user_row['id'];
-                $_SESSION['username'] = $user_row['username'];
-                $_SESSION['photo'] = $user_row['photo'];
+                    $_SESSION['account_id'] = $user_row['id'];
+                    $_SESSION['username'] = $user_row['username'];
+                    $_SESSION['photo'] = $user_row['photo'];
 
-                header("location: ../views/dashboard.php");
-                exit;
+                    header("location: ../views/counseling-schedule.php");
+                    exit;
                 } else {
 
-                echo "<p class='text-danger'>Incorrect password.</p>";
+                    echo "<p class='text-danger'>Incorrect password.</p>";
+                    
                 }
             } else {
                 echo "<p class='text-danger'>Username not found.</p>";
@@ -48,6 +51,11 @@ class User extends Database {
             die("Error with the query: " . $this->conn->error);
         }
     }
+
+
+
+
+    /////////////////////////
 
     public function getAllUsers() {
         $sql = "SELECT * FROM users";
