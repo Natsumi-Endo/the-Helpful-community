@@ -18,7 +18,9 @@
     <title>counseling-schedule</title>
 </head>
 <body>
-
+<?php
+    include "../views/admin-menu.php";
+?>
 <div class="container">
     <div class="row">
         <div class="col">
@@ -26,11 +28,11 @@
             Add Schedule</a>
         </div>
         <div class="col">
-            <a href="add-post.php" class="btn bg-primary text-white mx-auto px-5 pe-5"><i class="fa-solid fa-folder-plus"></i>
+            <a href="../views/add-post.php" class="btn bg-primary text-white mx-auto px-5 pe-5"><i class="fa-solid fa-folder-plus"></i>
             Add Post</a>
         </div>
         <div class="col">
-            <a href="add-tweet.php" class="btn bg-primary text-white mx-auto px-5 pe-5"><i class="fa-solid fa-folder-plus"></i>
+            <a href="../views/add-tweet.php" class="btn bg-primary text-white mx-auto px-5 pe-5"><i class="fa-solid fa-folder-plus"></i>
             Add Tweet</a>
         </div>
         
@@ -38,37 +40,47 @@
     <!--Table-->
     <h2>ALL SCHEDULE</h2>
     <div class="row">
-        <div class="col-9">
+        <div class="col">
             <table class="table table-striped">
                 <thead class="table-dark">
                     <tr>
                         <th>#</th>
+                        <th class="text-uppercase">Counseling date</th>
+                        
+                        <th class="text-uppercase">counseling time from</th>
+                        <th class="text-uppercase">counseling time to</th>
                         <th class="text-uppercase">Reserved date</th>
-                        <th class="text-uppercase">Counseling date	</th>
                         <th class="text-uppercase">User</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
-                    $counseling = new Counseling();
+                    $counseling = new Counseling;
 
                     $scheduleList = $counseling->getAllCounselingSchedule();
 
             if ($scheduleList && $scheduleList-> num_rows>0) {
+                
                while ($row = $scheduleList->fetch_assoc()) { 
- 
             ?>
                     <tr>
                         <td><?= $row["id"] ?></td>
-                        <td class="fw-bold"><?= $row["reserved_date"] ?></td>
                         <td><?= $row["counseling_date"] ?></td>
+                        <td><?= $row["counseling_time_from"] ?></td>
+                        <td><?= $row["counseling_time_to"] ?></td>
+                        <td class="fw-bold"><?= $row["reserved_date"] ?></td>
+                        
                         <td><?= $row["username"] ?></td>
                         
         
                         <td>
-                            <a href="post-detailes.php?post_id=<?= $row["id"]?>" class="btn btn-outline-dark btn-sm"><i class="fa-solid fa-angles-right me-1"></i>Details</a>
-
+                            <a href="../views/add-schedule.php?id=<?=$row["id"]?>" class="btn btn-outline-secondary btn-sm">
+                                        <i class="fas fa-pencil-alt"></i>
+                            </a>
+                            <a href="remove-product.php?id=<?=$row["id"]?>" class="btn btn-outline-danger btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                        </a>
 
                         </td>
                     </tr>
@@ -87,39 +99,14 @@
                 </tbody>
             </table>
         </div>
-
-        <div class="col-3"> 
-                <div class="bg-primary text-white text-center">
-                    <h2>Posts</h2>
-                    <h2><i class="fa-solid fa-pen m-2"></i>
-                    <?= $posts = countPosts();?>
-                    </h2>
-                    <a href="posts.php" class="btn btn-outline-light btn-sm m-2">VIEW</a>
-
-                </div>
-                <div class="bg-success text-white text-center mt-3">
-                    <h2>Categories</h2>
-                    <h2><i class="fa-solid fa-folder-open m-2"></i>
-                    <?= $categories = countCategories();?>
-                    </h2>
-                 <a href="categories.php" class="btn btn-outline-light btn-sm m-2">VIEW</a>
-
-                </div>       
-                <div class="bg-warning text-white text-center mt-3">
-                    <h2>Users</h2>
-                    <h2><i class="fa-solid fa-users m-2"></i>
-                    <?= $categories = countUsers();?>
-                    </h2>
-                    <a href="users.php" class="btn btn-outline-light btn-sm m-2">VIEW</a>
-                </div>
-        </div>
     </div>
-    <?php
-    include "../views/footer.php";
-?>
+
 
     
 </div>
+<?php
+    include "../views/footer.php";
+?>
     <!--Don't forget  if you use toggle button-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

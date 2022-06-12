@@ -4,7 +4,7 @@ html,body {
     margin: 0;
     background-color: #fff7c0;
     color: #0D6EFD;
-    overflow: hidden;
+    overflow-y: hidden;
 }
 
 .container {

@@ -1,4 +1,9 @@
+<?php
 
+    session_start();
+    include "../classes/edit-schedule.php";
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,15 +16,20 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-    <title>Add Schedule</title>
+    <title>Edit Schedule</title>
 </head>
 <body>
 <?php
     include "../views/admin-menu.php";
+
+    $id = $_GET['id']; 
+    $counseling = new Counseling;
+
+                    $scheduleList = $counseling->getCounselingScheduleById($id);
 ?>
     <div class="container">
     <div class="card-header bg-success text-white">
-            <h2 class="card-title h4 mb-0">Add New Counseling Schedule</h2>
+            <h2 class="card-title h4 mb-0">Edit Counseling Schedule</h2>
 
         </div>
         <div class="card-body">
@@ -37,9 +47,22 @@
                     <input type="time" name="counseling_time_to" id="counseling_time_to" class="form-control" required autofocus>
                 </div>
 
+                <label for="reserved_date" class="form-label small">Reserved date</label>
+                <input type="date" name="reserved_date" id="reserved_date" class="form-control mb-2" required autofocus>
+
+                <label for="account_id" class="form-label small">Account id</label>
+                <input type="text" name="account_id" id="account_id" class="form-control mb-2" required autofocus>
+
+                <label for="theme" class="form-label small">Theme</label>
+                <select name="theme" id="theme" class="form-select mb-5" required>
+                <option value="" hidden>Select Section</option>
+            
+                <label for="others" class="form-label small">Others</label>
+                <textarea name="others" id="others" cols="30" rows="10" class="form-control mb-2" required></textarea>
+
 
                 <a href="../views/counseling-schedule.php" class="btn btn-outline-secondary">Cancel</a>
-                <button type="submit" class="btn btn-success px-5" name="btn_add">Add</button>
+                <button type="submit" class="btn btn-success px-5" name="btn_save">Save</button>
 
             </form>
         </div>
