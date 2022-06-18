@@ -13,9 +13,9 @@
     <title>Admin Menu</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg index-nave">
+<nav class="navbar navbar-expand-lg index-nave bg-primary mb-1">
     <div class="container-fluid">
-        <a href="../views/dashboard.php" class="navbar-brand">
+        <a href="../views/counseling-schedule.php" class="navbar-brand">
                     <img src="..\assets\images\logo.jpg" alt="logo" class="header-logo">
                     </a>
         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-icon">
@@ -24,27 +24,27 @@
         <div class="collapse navbar-collapse" id="navbar-icon">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="tweets.php" class="nav-link active">Tweets</a>
+                    <a href="../views/tweets.php" class="nav-link active text-white">Tweets</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Posts</a>
+                    <a href="../views/posts.php" class="nav-link text-white">Posts</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">counseling</a>
+                    <a href="../views/couseling-schedule.php" class="nav-link text-white">counseling</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link disabled">users</a>
+                    <a href="../views/users.php" class="nav-link text-white">users</a>
                 </li>
             </ul>
 
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item mx-2">
-                    <a href="#" class="nav-link" id="login-show">My Page</a>
+                    <a href="../views/mypage.php" class="nav-link text-white" id="login-show">My Page</a>
                 </li>
 
                 <li class="nav-item bg-primary">
-                    <a href="#" class="nav-link text-white signup-show">Log out</a>
+                    <a href="../actions/logout.php" class="nav-link text-white signup-show">Log out</a>
                 </li>
             </ul>
 

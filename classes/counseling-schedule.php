@@ -13,8 +13,8 @@ class Counseling extends Database {
         }
     }
 
-    public function addCounselingSchedule($counseling_date, $place, $counseling_time_from, $counseling_time_to) {
-        $sql = "INSERT INTO `counseling_schedule`(`reserved_date`, `counseling_date`, `account_id`, `theme`, `others`, `place`, `counseling_time_from`, `counseling_time_to`) VALUES (null,'$counseling_date',null,null,null,'$place','$counseling_time_from','$counseling_time_to')";
+    public function addCounselingSchedule($counseling_date, $place, $counseling_time_from, $counseling_time_to, $account_id) {
+        $sql = "INSERT INTO `counseling_schedule`(`reserved_date`, `counseling_date`, `account_id`, `theme`, `others`, `place`, `counseling_time_from`, `counseling_time_to`) VALUES (SYSDATE(),'$counseling_date',$account_id,null,null,'$place','$counseling_time_from','$counseling_time_to')";
 
         if ($this->conn->query($sql)) {
             header ("location: ../views/counseling-schedule.php");

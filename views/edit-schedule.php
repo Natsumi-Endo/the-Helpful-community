@@ -21,11 +21,13 @@
 <body>
 <?php
     include "../views/admin-menu.php";
-
+    var_dump($_GET['id']);
     $id = $_GET['id']; 
-    $counseling = new Counseling;
+    $counseling = new EditCounseling;
 
-                    $scheduleList = $counseling->getCounselingScheduleById($id);
+    $scheduleList = $counseling->getCounselingScheduleById($id);
+    $counselingInfo = $counseling->fetch_assoc();
+    var_dump($counselingInfo); 
 ?>
     <div class="container">
     <div class="card-header bg-success text-white">
@@ -33,33 +35,71 @@
 
         </div>
         <div class="card-body">
-            <form action="../actions/add-schedule.php" method="post">
-                <label for="counseling_date" class="form-label small">Counseling date</label>
-                <input type="date" name="counseling_date" id="counseling_date" class="form-control mb-2" required autofocus>
+            <form action="../actions/edit-schedule.php" method="post">
+                <input type="hidden" name="id" value="<?= $counselingInfo['id'] ?>">
 
-                <label for="place" class="form-label small">place</label>
-                <input type="text" name="place" id="place" class="form-control mb-2">
+                <label for="counseling_date" class="form-label small">Counseling date</label>
+                <input type="date" name="counseling_date" id="counseling_date" class="form-control mb-2" value="<?= $counselingInfo['counseling_date'] ?>" required autofocus>
+
+                <label for="place" class="form-label small">Place</label>
+                <input type="text" name="place" id="place" class="form-control mb-2" value="<?= $counselingInfo['place'] ?>">
             
                 <label for="time" class="form-label small">time</label>
                 <div class="input-group mb-2">
                     
-                    <input type="time" name="counseling_time_from" id="counseling_time_from" class="form-control" required autofocus>
-                    <input type="time" name="counseling_time_to" id="counseling_time_to" class="form-control" required autofocus>
+                    <input type="time" name="counseling_time_from" id="counseling_time_from" class="form-control" value="<?= $counselingInfo['counseling_time_from'] ?>" required autofocus>
+                    <input type="time" name="counseling_time_to" id="counseling_time_to" class="form-control" value="<?= $counselingInfo['counseling_time_to'] ?>" required autofocus>
                 </div>
 
                 <label for="reserved_date" class="form-label small">Reserved date</label>
-                <input type="date" name="reserved_date" id="reserved_date" class="form-control mb-2" required autofocus>
+                <input type="date" name="reserved_date" id="reserved_date" class="form-control mb-2" value="<?= $counselingInfo['reserved_date'] ?>" required autofocus>
 
                 <label for="account_id" class="form-label small">Account id</label>
-                <input type="text" name="account_id" id="account_id" class="form-control mb-2" required autofocus>
+                <select name="account_id" id="account_id" class="form-select mb-5">
+                    <option value="" hidden>Select user</option>
+                    <?php
+
+                        $result = $counseling->getAllAccountId();
+                        while($users_row = $result-> fetch_assoc()) {
+                           
+                            if ($users_row['id'] == $counselingInfo['account_id']) {
+                                echo "<option value='".$users_row['id']. "' selected>".$users_row['id']."</option>";
+                            } else {
+                                echo "<option value='".$users_row['id']. "'>".$users_row['id']."</option>";
+                            }
+                        
+                        }
+                    ?>
+                </select>
 
                 <label for="theme" class="form-label small">Theme</label>
-                <select name="theme" id="theme" class="form-select mb-5" required>
-                <option value="" hidden>Select Section</option>
-            
-                <label for="others" class="form-label small">Others</label>
-                <textarea name="others" id="others" cols="30" rows="10" class="form-control mb-2" required></textarea>
+                <select name="account_id" id="account_id" class="form-select mb-5">
+                    <option value="" hidden>Select Theme</option>
+                    <option value="1"
+                    <?php
+                        if ($counselingInfo['theme'] == '1') {
+                            echo 'selected';
+                        }
+                    ?>
+                    >Career</option>
+                    <option value="2"
+                    <?php
+                        if ($counselingInfo['theme'] == '2') {
+                            echo 'selected';
+                        }
+                    ?>
+                    >Health</option>
+                    <option value="3"
+                    <?php
+                        if ($counselingInfo['theme'] == '3') {
+                            echo 'selected';
+                        }
+                    ?>
+                    >Others</option>
+                    
+                </select>
 
+                <textarea name="others" id="others" cols="30" rows="10" class="form-control mb-2"><?= $counselingInfo['others'] ?></textarea>
 
                 <a href="../views/counseling-schedule.php" class="btn btn-outline-secondary">Cancel</a>
                 <button type="submit" class="btn btn-success px-5" name="btn_save">Save</button>

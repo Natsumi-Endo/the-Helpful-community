@@ -22,7 +22,7 @@
     include "../views/admin-menu.php";
 ?>
 <div class="container">
-    <div class="row">
+    <div class="row text-center my-3">
         <div class="col">
             <a href="../views/add-schedule.php" class="btn bg-primary text-white mx-auto px-5 pe-5"><i class="fas fa-plus-circle"></i>
             Add Schedule</a>
@@ -72,13 +72,11 @@
                         <td class="fw-bold"><?= $row["reserved_date"] ?></td>
                         
                         <td><?= $row["username"] ?></td>
-                        
-        
                         <td>
-                            <a href="../views/add-schedule.php?id=<?=$row["id"]?>" class="btn btn-outline-secondary btn-sm">
+                            <a href="../views/edit-schedule.php?id=<?=$row["id"]?>" class="btn btn-outline-secondary btn-sm">
                                         <i class="fas fa-pencil-alt"></i>
                             </a>
-                            <a href="remove-product.php?id=<?=$row["id"]?>" class="btn btn-outline-danger btn-sm">
+                            <a href="delete-schedule.php?id=<?=$row["id"]?>" class="btn btn-outline-danger btn-sm">
                                         <i class="fas fa-trash"></i>
                                         </a>
 
@@ -93,8 +91,6 @@
                     <?php
                  }
                  
-
-
                 ?>
                 </tbody>
             </table>

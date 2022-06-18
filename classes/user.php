@@ -57,8 +57,8 @@ class User extends Database {
 
     /////////////////////////
 
-    public function getAllUsers() {
-        $sql = "SELECT * FROM users";
+    public function getAllAccountId() {
+        $sql = "SELECT id FROM accounts";
 
         if($result = $this->conn->query($sql)){
             return $result;
