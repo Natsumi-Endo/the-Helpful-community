@@ -76,7 +76,7 @@
                             <a href="../views/edit-schedule.php?id=<?=$row["id"]?>" class="btn btn-outline-secondary btn-sm">
                                         <i class="fas fa-pencil-alt"></i>
                             </a>
-                            <a href="delete-schedule.php?id=<?=$row["id"]?>" class="btn btn-outline-danger btn-sm">
+                            <a href="../actions/delete-schedule.php?id=<?=$row["id"]?>" onclick="return confirm('Are you sure you wanto to delete?');" class="btn btn-outline-danger btn-sm">
                                         <i class="fas fa-trash"></i>
                                         </a>
 

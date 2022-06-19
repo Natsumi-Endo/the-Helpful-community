@@ -40,6 +40,17 @@ class Counseling extends Database {
             die("Error with the query: " . $this->conn->error);
         }
     }
+
+    public function deleteSchedule($id) {
+
+        $sql = "DELETE FROM counseling_schedule WHERE id= $id";
+        if($this->conn->query($sql)) {
+            header("location: ../views/counseling-schedule.php");
+            exit;
+        } else {
+            die ("Error delete the counseling-schedule: ". $conn->error);
+        }
+    }
     
 }
 
